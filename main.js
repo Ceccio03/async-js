@@ -23,14 +23,39 @@ console.log('async');
 // }, 2000);
 
 // function gestisciRisposta(resp) {
-//     return resp.text();
+//     // return resp.text();
+//     console.log('response', resp);
+
+//     return resp.json();
 // }
 
 // function gestisciRisultatoFinale(res) {
-//     const dittoObj = JSON.parse(res);
+//     // const dittoObj = JSON.parse(res);
 
-//     console.log(dittoObj);
+//     // console.log(dittoObj);
+
+//     console.log(res);
 // }
 
-// fetch('https://pokeapi.co/api/v2/pokemon/ditto').then(gestisciRisposta).then(gestisciRisultatoFinale);
-fetch('https://pokeapi.co/api/v2/pokemon/ditto').then((pippo) => pippo.json()).then((pluto) => console.log(pluto));
+// function gestisciEmergenza(error) {
+//     console.log(error.message);
+// }
+
+// fetch('https://pokeapi.co/api/v2/pokemon/ditto').then(gestisciRisposta).then(gestisciRisultatoFinale).catch(gestisciEmergenza);
+fetch('https://pokeapi.co/api/v2/pokemon/ditto').then((resp) => resp.json()).then((res) => console.log(res)).then((ab) => console.log(ab)).catch((error) => console.log(error.message));
+
+const xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = () => {
+    if (this.readyState === 4) {
+        if (this.status === 200) {
+            console.log(this.responseText);
+
+            const ditto = JSON.parse(this.responseText);
+
+            console.log(ditto);
+        }
+    }
+};
+xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/ditto");
+xhttp.send();
