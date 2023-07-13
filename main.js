@@ -42,7 +42,7 @@ console.log('async');
 // }
 
 // fetch('https://pokeapi.co/api/v2/pokemon/ditto').then(gestisciRisposta).then(gestisciRisultatoFinale).catch(gestisciEmergenza);
-fetch('https://pokeapi.co/api/v2/pokemon/ditto').then((resp) => resp.json()).then((res) => console.log(res)).then((ab) => console.log(ab)).catch((error) => console.log(error.message));
+// fetch('https://pokeapi.co/api/v2/pokemon/ditto').then((resp) => resp.json()).then((res) => console.log(res)).then((ab) => console.log(ab)).catch((error) => console.log(error.message));
 
 const xhttp = new XMLHttpRequest();
 
@@ -57,5 +57,8 @@ xhttp.onreadystatechange = () => {
         }
     }
 };
-xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/ditto");
+xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/ditto", true);
 xhttp.send();
+
+document.getElementById('ciccio').content = 'ciao bella!';
+document.getElementById('ciccio').render();
