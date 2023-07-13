@@ -46,7 +46,7 @@ console.log('async');
 
 const xhttp = new XMLHttpRequest();
 
-xhttp.onreadystatechange = () => {
+xhttp.onreadystatechange = function() {
     if (this.readyState === 4) {
         if (this.status === 200) {
             console.log(this.responseText);
@@ -54,6 +54,8 @@ xhttp.onreadystatechange = () => {
             const ditto = JSON.parse(this.responseText);
 
             console.log(ditto);
+        } else {
+            console.log('errore');
         }
     }
 };
